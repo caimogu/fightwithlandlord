@@ -1,5 +1,5 @@
 package com.xjtu.network;
 
-public class Server {
+public class MyServer {
 
 }

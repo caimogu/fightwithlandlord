@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pokers {
-	private int pokerValueNumber = 15;
+	private int pokerKeyNumber = 15;
 	private  List<Card> pokerList;
+	private int[] cardValue=new int[]{12,13,1,2,3,4,5,6,7,8,9,10,11,14,15};
 	
 	public Pokers()
 	{
@@ -15,24 +16,26 @@ public class Pokers {
 		{
 			Card card = new Card();
 			card = pokerList.get(i);
-			System.out.println("牌值："+card.getValue()+"花色："+card.getColor());
+			System.out.println("牌值："+card.getKey()+"花色："+card.getColor());
 		}
 	}
 	
 	public void initialize()
 	{
-		for( int i=1; i<=pokerValueNumber; i++ )
+		for( int i=1; i<=pokerKeyNumber; i++ )
 		{
 			if(i>13)
 			{
 				Card card_small = new Card();
-				card_small.setValue(i);
-				card_small.setColor(Card.PokerColor.joker_small);
+				card_small.setKey(i);
+				card_small.setValue(14);
+				card_small.setColor(Card.PokerColor.JOKER_SMALL);
 				pokerList.add(card_small);
 				Card card_big = new Card();
-				card_big.setValue(i);
-				card_big.setValue(++i);
-				card_big.setColor(Card.PokerColor.joker_big);
+				//card_big.setKey(i);
+				card_big.setKey(++i);
+				card_big.setValue(15);
+				card_big.setColor(Card.PokerColor.JOKER_BIG);
 				pokerList.add(card_big);
 				break;
 			}else
@@ -40,23 +43,24 @@ public class Pokers {
 				for(int  j=0; j<4; j++)
 				{
 					Card card = new Card();
-					card.setValue(i);
+					card.setKey(i);
+					card.setValue(cardValue[i-1]);
 					switch(j)
 					{
 					case 0:
-						card.setColor(Card.PokerColor.heart);
+						card.setColor(Card.PokerColor.HEART);	
 						pokerList.add(card);
 						break;
 					case 1:
-						card.setColor(Card.PokerColor.spade);
+						card.setColor(Card.PokerColor.SPADE);
 						pokerList.add(card);
 						break;
 					case 2:
-						card.setColor(Card.PokerColor.club);
+						card.setColor(Card.PokerColor.CLUB);
 						pokerList.add(card);
 						break;
 					case 3:
-						card.setColor(Card.PokerColor.diamond);
+						card.setColor(Card.PokerColor.DIAMOND);
 						pokerList.add(card);
 						break;
 					}	
