@@ -16,7 +16,7 @@ public class Pokers {
 		{
 			Card card = new Card();
 			card = pokerList.get(i);
-			System.out.println("牌值："+card.getKey()+"花色："+card.getColor());
+			//System.out.println("牌值："+card.getKey()+"花色："+card.getColor());
 		}
 	}
 	

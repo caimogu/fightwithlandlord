@@ -8,26 +8,28 @@ import com.xjtu.poke.Card;
 import com.xjtu.poke.PokeController;
 
 public class PlayerController {
-	protected GameState gameState = GameState.CHOSE;
 	
-	protected int playerCount = 1;
+	protected GameState gameState = GameState.CHOSE;
+	//protected int playerCount = 1;
+	protected int playerCount = 0;
 	final protected int playerCountMax = 3;
 	protected Player[] players = null;
 	protected int first = -1;//东家
 	protected int current = -1;//当前轮到谁出牌
 	protected int winner = -1;
 	protected List<Card> playingCards = null;
-	protected boolean isPassCard = false;
-	
+
 	protected PokeController pokeCtrl = new PokeController();
 	
 	
-	public boolean isPassCard() {
-		return isPassCard;
+
+	public List<Card> getPlayingCards() {
+		return playingCards;
 	}
-	public void setPassCard(boolean isPassCard) {
-		this.isPassCard = isPassCard;
+	public void setPlayingCards(List<Card> playingCards) {
+		this.playingCards = playingCards;
 	}
+	
 	public GameState getGameState() {
 		return gameState;
 	}
@@ -81,13 +83,6 @@ public class PlayerController {
 		return players[first];
 	}
 	
-	
-	public List<Card> getPlayingCards() {
-		return playingCards;
-	}
-	public void setPlayingCards(List<Card> playingCards) {
-		this.playingCards = playingCards;
-	}
 	public Player PrePlayer(){
 		current = (current + 2) % 3;
 		return players[current];
